@@ -16,7 +16,7 @@
 ## Requirements
 
 - Ruby `>= 3.2`
-- Rails `>= 7.1`
+- Rails `>= 7.1`, `< 9.0`
 
 ## Installation
 

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_01_01_000002) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_01_000002) do
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "otp_secret"
-    t.boolean "otp_required_for_login", default: false, null: false
-    t.text "otp_backup_codes"
+    t.string "email", default: "", null: false
     t.integer "last_otp_at"
+    t.text "otp_backup_codes"
+    t.boolean "otp_required_for_login", default: false, null: false
+    t.string "otp_secret"
+    t.datetime "updated_at", null: false
   end
 end

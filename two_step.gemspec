@@ -3,6 +3,8 @@
 require_relative "lib/two_step/version"
 
 Gem::Specification.new do |spec|
+  rails_dependency = [">= 7.1", "< 9.0"]
+
   spec.name = "two_step"
   spec.version = TwoStep::VERSION
   spec.authors = ["Fernand Arioja"]
@@ -26,11 +28,11 @@ Gem::Specification.new do |spec|
     Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
   end
 
-  spec.add_dependency "railties", "~> 7.1", ">= 7.1.0"
-  spec.add_dependency "activerecord", "~> 7.1", ">= 7.1.0"
-  spec.add_dependency "actionpack", "~> 7.1", ">= 7.1.0"
-  spec.add_dependency "actionview", "~> 7.1", ">= 7.1.0"
-  spec.add_dependency "activemodel", "~> 7.1", ">= 7.1.0"
+  spec.add_dependency "railties", *rails_dependency
+  spec.add_dependency "activerecord", *rails_dependency
+  spec.add_dependency "actionpack", *rails_dependency
+  spec.add_dependency "actionview", *rails_dependency
+  spec.add_dependency "activemodel", *rails_dependency
   spec.add_dependency "rotp", "~> 6.3"
   spec.add_dependency "rqrcode", "~> 3.2"
   spec.add_dependency "bcrypt", "~> 3.1"

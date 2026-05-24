@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "rails", "~> 7.1", ">= 7.1.0"
+gem "rails", "~> 8.1.3"
 gem "puma"
 gem "sqlite3"
 gem "propshaft"

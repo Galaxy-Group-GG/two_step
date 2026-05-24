@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1] - 2026-05-24
+
+### Changed
+
+- Relaxed Rails component dependency bounds to support Rails 8.x applications, including Rails 8.1.3
+- Updated the development bundle to run against Rails 8.1.3
+
 ## [1.0.0] - 2026-05-23
 
 Initial release.

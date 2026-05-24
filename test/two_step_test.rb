@@ -4,7 +4,7 @@ require "test_helper"
 
 class TwoStepTest < ActiveSupport::TestCase
   test "version is present" do
-    assert_equal "1.0.0", TwoStep::VERSION
+    assert_equal "1.0.1", TwoStep::VERSION
   end
 
   test "configure yields configuration" do
