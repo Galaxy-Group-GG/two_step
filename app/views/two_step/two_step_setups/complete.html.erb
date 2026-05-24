@@ -1,0 +1,20 @@
+<header class="two_step-header">
+  <p class="two_step-kicker"><%= t("two_step.views.complete.kicker", default: "Setup complete") %></p>
+  <h1><%= t("two_step.views.complete.title") %></h1>
+  <p class="two_step-copy"><%= t("two_step.views.complete.backup_codes") %></p>
+</header>
+
+<div class="two_step-warning">
+  <strong><%= t("two_step.views.complete.warning_title", default: "Save these now") %></strong>
+  <p><%= t("two_step.views.complete.warning_body", default: "Each backup code can be used only once. Keep them in a password manager or another secure place.") %></p>
+</div>
+
+<ul class="two_step-backup-codes">
+  <% @backup_codes.each do |code| %>
+    <li><code><%= code %></code></li>
+  <% end %>
+</ul>
+
+<p class="two_step-actions">
+  <%= link_to t("two_step.views.complete.done"), TwoStep.configuration.resolve_after_two_step_login_path(setup_resource, controller: controller), class: "two_step-link-button" %>
+</p>

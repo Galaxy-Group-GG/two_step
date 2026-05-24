@@ -1,0 +1,10 @@
+.git
+.github
+coverage
+tmp
+log
+test/dummy/log
+test/dummy/tmp
+test/dummy/storage
+*.md
+!README.md

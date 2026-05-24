@@ -1,0 +1,8 @@
+class AddTwoStepTo<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_version %>
+  def change
+    add_column :<%= table_name %>, :otp_secret, :string
+    add_column :<%= table_name %>, :otp_required_for_login, :boolean, default: false, null: false
+    add_column :<%= table_name %>, :otp_backup_codes, :text
+    add_column :<%= table_name %>, :last_otp_at, :integer
+  end
+end

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+bundle install
+mkdir -p test/dummy/storage
+(
+  cd test/dummy
+  bundle exec rails db:prepare
+)

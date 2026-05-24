@@ -1,0 +1,39 @@
+en:
+  two_step:
+    challenges:
+      invalid_otp: "Invalid two-factor code."
+      invalid_backup: "Invalid backup code."
+    setups:
+      invalid_otp: "Invalid code. Please try again."
+      disabled: "TwoStep disabled."
+    views:
+      challenge:
+        kicker: "Security check"
+        title: "Two-Factor Authentication"
+        subtitle: "Enter the 6-digit code from your authenticator app to continue."
+        otp_label: "Authenticator code"
+        otp_help: "Codes refresh every 30 seconds."
+        submit: "Verify code"
+        use_backup: "Use a backup code instead"
+        backup_label: "Backup code"
+        backup_help: "Backup codes are one-time use. Enter one exactly as saved."
+        submit_backup: "Verify backup code"
+      setup:
+        kicker: "Security setup"
+        title: "Set Up Two-Factor Authentication"
+        subtitle: "Protect your account with one more verification step."
+        required_now: "Required before this sign-in can continue"
+        scan_qr: "Scan this QR code with your authenticator app:"
+        manual_fallback: "If scanning fails, enter the setup key manually."
+        qr_label: "QR code for authenticator setup"
+        manual_key: "Or enter this key manually:"
+        confirm_label: "Enter the 6-digit code to confirm"
+        confirm_help: "Open your authenticator app and enter the latest 6-digit code."
+        enable: "Enable"
+      complete:
+        kicker: "Setup complete"
+        title: "Two-Factor Authentication Enabled"
+        backup_codes: "Save these backup codes in a secure place. Each can be used once."
+        warning_title: "Save these now"
+        warning_body: "Each backup code can be used only once. Keep them in a password manager or another secure place."
+        done: "Continue"

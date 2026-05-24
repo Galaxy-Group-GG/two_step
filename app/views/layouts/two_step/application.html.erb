@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html <%= tag.attributes(two_step_layout_html_attributes) %>>
+<head>
+  <title><%= two_step_layout_title %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <% two_step_layout_stylesheets.each do |stylesheet| %>
+    <%= stylesheet_link_tag stylesheet, media: "all" %>
+  <% end %>
+</head>
+<body <%= tag.attributes(two_step_layout_body_attributes) %>>
+  <div class="two_step-shell__mesh" aria-hidden="true"></div>
+  <main class="two_step-card">
+    <% if two_step_layout_brand.present? %>
+      <p class="two_step-brand"><%= two_step_layout_brand %></p>
+    <% end %>
+    <% flash.each do |type, message| %>
+      <p class="two_step-flash two_step-flash--<%= type %>"><%= message %></p>
+    <% end %>
+
+    <%= yield %>
+  </main>
+</body>
+</html>

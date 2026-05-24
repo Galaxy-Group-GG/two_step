@@ -1,0 +1,39 @@
+ja:
+  two_step:
+    challenges:
+      invalid_otp: "2段階認証コードが正しくありません。"
+      invalid_backup: "バックアップコードが正しくありません。"
+    setups:
+      invalid_otp: "コードが正しくありません。もう一度お試しください。"
+      disabled: "2段階認証を無効にしました。"
+    views:
+      challenge:
+        kicker: "セキュリティ確認"
+        title: "2段階認証"
+        subtitle: "続行するには、認証アプリに表示される6桁コードを入力してください。"
+        otp_label: "認証コード"
+        otp_help: "コードは30秒ごとに更新されます。"
+        submit: "コードを確認"
+        use_backup: "バックアップコードを使う"
+        backup_label: "バックアップコード"
+        backup_help: "バックアップコードは1回限り有効です。保存した形式で入力してください。"
+        submit_backup: "バックアップコードを確認"
+      setup:
+        kicker: "セキュリティ設定"
+        title: "2段階認証を設定"
+        subtitle: "もう1つの確認ステップでアカウントを保護します。"
+        required_now: "このサインインを続行するには設定が必要です"
+        scan_qr: "認証アプリでこのQRコードを読み取ってください:"
+        manual_fallback: "読み取れない場合は、セットアップキーを手動で入力してください。"
+        qr_label: "認証アプリ設定用のQRコード"
+        manual_key: "手動入力キー:"
+        confirm_label: "確認のため6桁コードを入力"
+        confirm_help: "認証アプリを開き、最新の6桁コードを入力してください。"
+        enable: "有効化する"
+      complete:
+        kicker: "設定完了"
+        title: "2段階認証を有効にしました"
+        backup_codes: "バックアップコードを安全な場所に保管してください。各コードは1回だけ使えます。"
+        warning_title: "今すぐ保存してください"
+        warning_body: "各バックアップコードは1回のみ使用可能です。パスワードマネージャーなど安全な場所に保管してください。"
+        done: "続行"

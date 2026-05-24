@@ -1,0 +1,22 @@
+services:
+  test:
+    build:
+      context: .
+      target: test
+    environment:
+      COVERAGE: "1"
+      RAILS_ENV: test
+    volumes:
+      - ./coverage:/app/coverage
+
+  dev:
+    build:
+      context: .
+      target: builder
+    command: bash -lc "cd test/dummy && bundle exec rails db:prepare && bundle exec rails server -b 0.0.0.0"
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+    volumes:
+      - .:/app

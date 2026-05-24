@@ -1,0 +1,27 @@
+<header class="two_step-header">
+  <p class="two_step-kicker"><%= t("two_step.views.challenge.kicker", default: "Security check") %></p>
+  <h1><%= t("two_step.views.challenge.title", default: "Two-Factor Authentication") %></h1>
+  <p class="two_step-copy"><%= t("two_step.views.challenge.subtitle", default: "Enter the 6-digit code from your authenticator app to continue.") %></p>
+</header>
+
+<%= form_with url: two_step_challenge_path, method: :post, class: "two_step-form" do |form| %>
+  <div class="two_step-field">
+    <%= form.label :otp_code, t("two_step.views.challenge.otp_label", default: "Authenticator code") %>
+    <%= form.text_field :otp_code, autocomplete: "one-time-code", inputmode: "numeric", maxlength: 6, pattern: "\\d{6}", placeholder: "123456", autofocus: true %>
+    <p class="two_step-field-note"><%= t("two_step.views.challenge.otp_help", default: "Codes refresh every 30 seconds.") %></p>
+  </div>
+  <%= form.submit t("two_step.views.challenge.submit", default: "Verify code") %>
+<% end %>
+
+<details class="two_step-details">
+  <summary><%= t("two_step.views.challenge.use_backup", default: "Use a backup code instead") %></summary>
+  <p class="two_step-copy"><%= t("two_step.views.challenge.backup_help", default: "Backup codes are one-time use. Enter one exactly as saved.") %></p>
+  
+  <%= form_with url: two_step_challenge_path, method: :post, class: "two_step-form" do |form| %>
+    <div class="two_step-field">
+      <%= form.label :backup_code, t("two_step.views.challenge.backup_label", default: "Backup code") %>
+      <%= form.text_field :backup_code, autocomplete: "one-time-code", placeholder: "ABC-123-DEF-456" %>
+    </div>
+    <%= form.submit t("two_step.views.challenge.submit_backup", default: "Verify backup code") %>
+  <% end %>
+</details>

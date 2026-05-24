@@ -1,0 +1,28 @@
+<header class="two_step-header">
+  <p class="two_step-kicker"><%= t("two_step.views.setup.kicker", default: "Security setup") %></p>
+  <h1><%= t("two_step.views.setup.title") %></h1>
+  <p class="two_step-copy"><%= t("two_step.views.setup.subtitle", default: "Protect your account with one more verification step.") %></p>
+  <% if setup_requires_login_challenge? %>
+    <p class="two_step-badge"><%= t("two_step.views.setup.required_now", default: "Required before this sign-in can continue") %></p>
+  <% end %>
+</header>
+
+<ol class="two_step-steps">
+  <li><%= t("two_step.views.setup.scan_qr") %></li>
+  <li><%= t("two_step.views.setup.manual_fallback", default: "If scanning fails, enter the setup key manually.") %></li>
+  <li><%= t("two_step.views.setup.confirm_label") %></li>
+</ol>
+
+<div class="two_step-qr" role="img" aria-label="<%= t("two_step.views.setup.qr_label", default: "QR code for authenticator setup") %>">
+  <%= @qr_svg %>
+</div>
+<p class="two_step-manual-key"><%= t("two_step.views.setup.manual_key") %> <code><%= setup_resource.otp_secret %></code></p>
+
+<%= form_with url: two_step_setup_path, method: :post, class: "two_step-form" do |form| %>
+  <div class="two_step-field">
+    <%= form.label :otp_code, t("two_step.views.setup.confirm_label") %>
+    <%= form.text_field :otp_code, autocomplete: "one-time-code", inputmode: "numeric", maxlength: 6, pattern: "\\d{6}", placeholder: "123456" %>
+    <p class="two_step-field-note"><%= t("two_step.views.setup.confirm_help", default: "Open your authenticator app and enter the latest 6-digit code.") %></p>
+  </div>
+  <%= form.submit t("two_step.views.setup.enable") %>
+<% end %>

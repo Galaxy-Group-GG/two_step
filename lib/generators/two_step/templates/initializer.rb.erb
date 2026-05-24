@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+TwoStep.configure do |config|
+  config.issuer = "<%= Rails.application.class.module_parent_name %>"
+
+  config.resource_finder = ->(session) {
+    <%= model %>.find_by(id: session[:two_step_pending_<%= model.underscore %>_id])
+  }
+
+  config.current_resource_finder = ->(session) {
+    <%= model %>.find_by(id: session[:<%= model.underscore %>_id])
+  }
+
+  config.login_path = "/login"
+  config.after_two_step_login_path = "/"
+  config.layout_title = -> { "#{config.issuer} Security" }
+  config.layout_stylesheets = ["two_step/application"]
+  config.layout_html_attributes = -> { {lang: I18n.locale} }
+  config.layout_body_attributes = {class: "two_step-shell"}
+  config.layout_brand = config.issuer
+
+  # The controller is passed as the third argument when you need route helpers
+  # or `reset_session` for session fixation protection.
+  config.on_authentication_success = ->(resource, session, _controller) {
+    session.delete(:two_step_pending_<%= model.underscore %>_id)
+    session[:<%= model.underscore %>_id] = resource.id
+  }
+end

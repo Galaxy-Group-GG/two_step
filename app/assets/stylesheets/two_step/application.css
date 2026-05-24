@@ -1,0 +1,259 @@
+/*
+ *= require_self
+ */
+
+:root {
+  --two_step-bg: radial-gradient(circle at 20% 20%, #f8efe3 0%, #fdf7ef 42%, #ffffff 100%);
+  --two_step-surface: #ffffff;
+  --two_step-border: #d9cbb4;
+  --two_step-text: #26170d;
+  --two_step-muted: #6e5a45;
+  --two_step-accent: #9b4626;
+  --two_step-accent-dark: #78341b;
+  --two_step-accent-soft: #f9eee8;
+  --two_step-success-bg: #eef7ee;
+  --two_step-success-border: #7ca67d;
+  --two_step-alert-bg: #fff1ec;
+  --two_step-alert-border: #d97857;
+  --two_step-warning-bg: #fff8ed;
+  --two_step-warning-border: #d9a861;
+}
+
+body.two_step-shell {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--two_step-bg);
+  color: var(--two_step-text);
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  position: relative;
+}
+
+.two_step-shell__mesh {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(155, 70, 38, 0.08) 0.06rem, transparent 0.06rem);
+  background-size: 1.35rem 1.35rem;
+  pointer-events: none;
+}
+
+.two_step-card {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: min(34rem, calc(100% - 2rem));
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: var(--two_step-surface);
+  border: 1px solid var(--two_step-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgba(35, 24, 13, 0.12);
+}
+
+.two_step-brand {
+  margin: 0 0 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--two_step-muted);
+  text-transform: uppercase;
+}
+
+.two_step-header {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.two_step-kicker {
+  margin: 0;
+  color: var(--two_step-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.two_step-card h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.two_step-copy,
+.two_step-manual-key,
+.two_step-actions {
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+  color: var(--two_step-muted);
+}
+
+.two_step-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0.4rem 0 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--two_step-warning-border);
+  background: var(--two_step-warning-bg);
+  color: #7b4d13;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.two_step-steps {
+  margin: 1.25rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--two_step-muted);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.two_step-qr {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #fffaf4;
+  border: 1px solid var(--two_step-border);
+  border-radius: 1rem;
+}
+
+.two_step-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.two_step-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.two_step-card input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--two_step-border);
+  border-radius: 0.85rem;
+  font: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.two_step-card input[type="text"]:focus {
+  outline: none;
+  border-color: var(--two_step-accent);
+  box-shadow: 0 0 0 0.2rem rgba(155, 70, 38, 0.15);
+}
+
+.two_step-card input[type="submit"] {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  background: var(--two_step-accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.two_step-card input[type="submit"]:hover {
+  background: var(--two_step-accent-dark);
+}
+
+.two_step-field-note {
+  margin: 0;
+  color: var(--two_step-muted);
+  font-size: 0.84rem;
+}
+
+.two_step-details {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--two_step-border);
+}
+
+.two_step-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.two_step-details .two_step-copy {
+  margin-top: 0.7rem;
+}
+
+.two_step-warning {
+  margin-top: 1.1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--two_step-warning-border);
+  background: var(--two_step-warning-bg);
+}
+
+.two_step-warning p {
+  margin: 0.35rem 0 0;
+  color: #735232;
+}
+
+.two_step-backup-codes {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.two_step-backup-codes code,
+.two_step-manual-key code {
+  font-size: 0.95rem;
+  background: #fbf5ee;
+  padding: 0.18rem 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.two_step-actions {
+  margin-top: 1.3rem;
+}
+
+.two_step-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--two_step-accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.72rem 1.1rem;
+  font-weight: 600;
+}
+
+.two_step-link-button:hover {
+  background: var(--two_step-accent-dark);
+}
+
+.two_step-flash {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+}
+
+.two_step-flash--notice {
+  background: var(--two_step-success-bg);
+  border: 1px solid var(--two_step-success-border);
+}
+
+.two_step-flash--alert {
+  background: var(--two_step-alert-bg);
+  border: 1px solid var(--two_step-alert-border);
+}
+
+@media (max-width: 640px) {
+  .two_step-card {
+    margin: 1.5rem auto;
+    padding: 1.25rem;
+  }
+
+  .two_step-steps {
+    margin-top: 1rem;
+  }
+}
